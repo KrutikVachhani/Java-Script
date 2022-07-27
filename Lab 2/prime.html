@@ -1,0 +1,27 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>prime</title>
+  </head>
+  <body>
+    <script>
+      n1 = prompt("enter any number");
+      n2 = prompt("enter any number");
+
+      for (i = n1; i <= n2; i++) {
+        flag = true;
+        for (j = 2; j <= i / 2; ++j) {
+          if (i % j == 0) {
+            flag = false;
+            break;
+          }
+        }
+        if (flag == true) {
+          document.write(i + "</br>");
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <script>
+      a = parseInt(prompt("enter value of a :"));
+      b = parseInt(prompt("Enter value of b :"));
+      O = prompt("Enter Operation Name :");
+
+      if (O == "Addition") {
+        alert(a + b);
+      } else if (O == "Substraction") {
+        alert(a - b);
+      } else if (O == "Multiplication") {
+        alert(a * b);
+      } else if (O == "Division") {
+        alert(a / b);
+      } else {
+        alert("invalid Operation Name.");
+      }
+    </script>
+  </body>
+</html>
