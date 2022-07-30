@@ -1,0 +1,249 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GUI Calculator</title>
+
+    <style>
+      #btn {
+        width: 95%;
+      }
+      .btncss {
+        width: 35px;
+        height: 35px;
+        font-size: 15px;
+        margin: 2px;
+        cursor: pointer;
+        background-color: skyblue;
+        color: black;
+        border-radius: 0.5em;
+        border-color: skyblue;
+      }
+      .btncss2 {
+        width: 35px;
+        height: 35px;
+        font-size: 15px;
+        margin: 2px;
+        cursor: pointer;
+        background-color: black;
+        color: white;
+        border-radius: 0.5em;
+        border-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <table align="center" border="1px">
+      <tr>
+        <td colspan="4">
+          <input class="textview" name="textview" id="element1" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="button" value="C" class="btncss" onclick="clearAll()" />
+        </td>
+        <td>
+          <input type="button" value="B" class="btncss" onclick="backspace()" />
+        </td>
+        <td>
+          <input
+            type="button"
+            value="%"
+            class="btncss"
+            onclick="Operation('%')"
+          />
+        </td>
+        <td>
+          <input
+            type="button"
+            value="/ "
+            class="btncss"
+            onclick="Operation('/')"
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <input
+            type="button"
+            value="7"
+            class="btncss2"
+            onclick="printn('7')"
+          />
+        </td>
+        <td>
+          <input
+            type="button"
+            value="8"
+            class="btncss2"
+            onclick="printn('8')"
+          />
+        </td>
+        <td>
+          <input
+            type="button"
+            value="9"
+            class="btncss2"
+            onclick="printn('9')"
+          />
+        </td>
+        <td>
+          <input
+            type="button"
+            value="x "
+            class="btncss"
+            onclick="Operation('*')"
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <input
+            type="button"
+            value="4"
+            class="btncss2"
+            onclick="printn('4')"
+          />
+        </td>
+        <td>
+          <input
+            type="button"
+            value="5"
+            class="btncss2"
+            onclick="printn('5')"
+          />
+        </td>
+        <td>
+          <input
+            type="button"
+            value="6"
+            class="btncss2"
+            onclick="printn('6')"
+          />
+        </td>
+        <td>
+          <input
+            type="button"
+            value="- "
+            class="btncss"
+            onclick="Operation('-')"
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <input
+            type="button"
+            value="1"
+            class="btncss2"
+            id="p1"
+            onkeypress="printn(1)"
+            onclick="printn('1')"
+          />
+        </td>
+        <td>
+          <input
+            type="button"
+            value="2"
+            class="btncss2"
+            onclick="printn('2')"
+          />
+        </td>
+        <td>
+          <input
+            type="button"
+            value="3"
+            class="btncss2"
+            onclick="printn('3')"
+          />
+        </td>
+        <td>
+          <input
+            type="button"
+            value="+"
+            class="btncss"
+            id="sum"
+            onclick="Operation('+')"
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <input
+            type="button"
+            value="0"
+            class="btncss2"
+            onclick="printn('0')"
+          />
+        </td>
+        <td>
+          <input
+            type="button"
+            value=". "
+            class="btncss2"
+            onclick="printn('.')"
+          />
+        </td>
+        <td colspan="2">
+          <input
+            type="button"
+            value="="
+            id="btn"
+            class="btncss"
+            onclick="equal()"
+          />
+        </td>
+      </tr>
+    </table>
+    <script>
+      var oldvalue = 0;
+      var oldOp = "";
+
+      function printn(num) {
+        var p = document.getElementById("element1");
+        p.value += num;
+      }
+
+      function Operation(num) {
+        var p = document.getElementById("element1");
+        oldvalue = p.value;
+        oldOp = num;
+        p.value = "";
+      }
+
+      function equal() {
+        var p = document.getElementById("element1");
+        newvalue = p.value;
+        if (oldOp == "+") {
+          ans = parseInt(newvalue) + parseInt(oldvalue);
+        } else if (oldOp == "-") {
+          ans = parseInt(oldvalue) - parseInt(newvalue);
+        } else if (oldOp == "*") {
+          ans = parseInt(newvalue) * parseInt(oldvalue);
+        } else if (oldOp == "/") {
+          ans = parseInt(oldvalue) / parseInt(newvalue);
+        } else if (oldOp == "%") {
+          ans = parseInt(oldvalue) % parseInt(newvalue);
+        }
+        p.value = ans;
+        ans = 0;
+      }
+
+      function backspace() {
+        var p = document.getElementById("element1");
+        element1.value = p.value.substring(0, p.value.length - 1);
+      }
+
+      function clearAll() {
+        var p = document.getElementById("element1");
+        p.value = "";
+      }
+    </script>
+  </body>
+</html>
