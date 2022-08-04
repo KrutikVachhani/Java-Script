@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Attendence</title>
+</head>
+<body>
+    
+    <button value="All Cheked"  onclick="checkAll()">checkAll</button>
+    <button value="uncheckAll" onclick="uncheckAll()" >uncheckAll</button></br>
+    <div id="ab" style="border: 1px black solid; height: 50%; width: 50%; position: fixed; margin-left: 250px; "></div>
+
+    <script>
+        function printclass(Start, end){
+
+        for (var i = Start; i <=end; i++) {
+			document.write("<input type='checkbox' onclick='check()'>");
+			document.write("<span>"+i+"</span></br>");
+        }
+                
+    }
+    
+        printclass(201,285);
+        printclass(301,363);
+
+        function checkAll() {
+		var inputs = document.getElementsByTagName('input');
+		for (var i = 0; i < inputs.length; i++) {
+			inputs[i].checked = true;
+		}
+	}
+        //create uncheckall function
+        function uncheckAll() {
+            var inputs = document.getElementsByTagName('input');
+            for (var i = 0; i < inputs.length; i++) {
+                inputs[i].checked = false;
+            }
+        }
+
+        function check(){
+            var temp = document.getElementById('ab')
+            var temp2 = document.getElementsByTagName('span');
+            temp.innerHTML='';
+            var inputs = document.getElementsByTagName('input');
+            for(var i=0; i<inputs.length;i++){
+                if(inputs[i].checked==false){
+                    temp.innerHTML+=temp2[i].innerHTML+',';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
